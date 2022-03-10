@@ -1,0 +1,26 @@
+#BlueJ class context
+comment0.target=Manazer
+comment0.text=\r\n\ Automaticky\ posiela\ spravy\ danym\ objektom\:<br\ />\r\n\ posunDole()\ -\ pri\ stlaceni\ klavesy\ DOWN<br\ />\r\n\ posunHore()\ -\ pri\ stlaceni\ klavesy\ UP<br\ />\r\n\ posunVlavo()\ -\ pri\ stlacen\ klavesy\ LEFT<br\ />\r\n\ posunVpravo()\ -\ pri\ stlaceni\ klavesy\ RIGHT<br\ />\r\n\ aktivuj()\ -\ pri\ stlaceni\ klavesy\ ENTER\ alebo\ SPACE<br\ />\r\n\ zrus()\ -\ pri\ stlaceni\ klavesy\ ESC<br\ />\r\n\ tik()\ -\ kazdych\ 0,25\ sekundy<br\ />\r\n\ vyberSuradnice(x,\ y)\ -\ pri\ kliknuti\ mysou\r\n
+comment1.params=
+comment1.target=Smer\ getPohybM()
+comment10.params=objekt
+comment10.target=void\ prestanSpravovatObjekt(java.lang.Object)
+comment2.params=
+comment2.target=Smer\ getPohybC()
+comment3.params=
+comment3.target=Smer\ getSmerM()
+comment4.params=
+comment4.target=Smer\ getSmerC()
+comment5.params=selektor
+comment5.target=void\ posliSpravu(java.lang.String)
+comment6.params=selektor\ prvyParameter\ druhyParameter
+comment6.target=void\ posliSpravu(java.lang.String,\ int,\ int)
+comment7.params=
+comment7.target=void\ doNothing()
+comment8.params=
+comment8.target=Manazer()
+comment8.text=\r\n\ Vytvori\ novy\ manazer,\ ktory\ nespravuje\ zatial\ ziadne\ objekty.\r\n
+comment9.params=objekt
+comment9.target=void\ spravujObjekt(java.lang.Object)
+comment9.text=\r\n\ Manazer\ bude\ spravovat\ dany\ objekt.\r\n
+numComments=11

@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=SedemSegmentovyDisplej
+comment1.params=x\ y\ sirka\ vyska
+comment1.target=SedemSegmentovyDisplej(int,\ int,\ int,\ int)
+comment2.params=
+comment2.target=void\ zobraz0()
+comment3.params=
+comment3.target=void\ zobraz1()
+comment4.params=
+comment4.target=void\ zobraz2()
+comment5.params=
+comment5.target=void\ zobraz3()
+comment6.params=
+comment6.target=void\ zobraz4()
+comment7.params=
+comment7.target=void\ zobraz5()
+comment8.params=cifra
+comment8.target=void\ zobraz(int)
+comment9.params=
+comment9.target=void\ error()
+numComments=10

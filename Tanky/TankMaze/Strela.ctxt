@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=Strela
+comment1.params=smer\ pixely\ tanky\ x\ y
+comment1.target=Strela(Smer,\ Stvorec[][],\ Tanky,\ int,\ int)
+comment2.params=
+comment2.target=void\ tik()
+comment3.params=
+comment3.target=void\ posunStrelu()
+comment4.params=x\ y
+comment4.target=Kolizia\ kolizia(int,\ int)
+comment5.params=dlzka
+comment5.target=void\ posunZvisle(int)
+comment6.params=dlzka
+comment6.target=void\ posunVodorovne(int)
+comment7.params=
+comment7.target=void\ zmazStrelu()
+comment8.params=
+comment8.target=void\ zmazStrely()
+numComments=9

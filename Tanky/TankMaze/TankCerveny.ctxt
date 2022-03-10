@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=TankCerveny
+comment1.params=cerveneX\ cerveneY
+comment1.target=TankCerveny(int,\ int)
+comment2.params=cislo
+comment2.target=void\ posunZvisle(int)
+comment3.params=cislo
+comment3.target=void\ posunVodorovne(int)
+comment4.params=x\ y
+comment4.target=void\ zmenPolohuC(int,\ int)
+comment5.params=uhol
+comment5.target=void\ zmenUhol(int)
+comment6.params=
+comment6.target=int\ getCerveneX()
+comment7.params=cerveneX
+comment7.target=void\ setCerveneX(int)
+comment8.params=
+comment8.target=int\ getCerveneY()
+comment9.params=cerveneY
+comment9.target=void\ setCerveneY(int)
+numComments=10

@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=TankModry
+comment1.params=modreX\ modreY
+comment1.target=TankModry(int,\ int)
+comment2.params=cislo
+comment2.target=void\ posunZvisle(int)
+comment3.params=cislo
+comment3.target=void\ posunVodorovne(int)
+comment4.params=x\ y
+comment4.target=void\ zmenPolohuM(int,\ int)
+comment5.params=uhol
+comment5.target=void\ zmenUhol(int)
+comment6.params=
+comment6.target=int\ getModreX()
+comment7.params=modreX
+comment7.target=void\ setModreX(int)
+comment8.params=
+comment8.target=int\ getModreY()
+comment9.params=modreY
+comment9.target=void\ setModreY(int)
+numComments=10

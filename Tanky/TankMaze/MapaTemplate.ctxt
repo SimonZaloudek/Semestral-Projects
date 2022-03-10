@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=MapaTemplate
+comment1.params=template
+comment1.target=MapaTemplate(boolean[][])
+comment2.params=
+comment2.target=boolean[][]\ getTemplate()
+numComments=3

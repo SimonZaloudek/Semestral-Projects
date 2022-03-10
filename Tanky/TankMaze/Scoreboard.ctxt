@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Scoreboard
+comment1.params=aktHodnotaC\ aktHodnotaM
+comment1.target=Scoreboard(int,\ int)
+comment2.params=
+comment2.target=void\ zobrazAktHodnotuC()
+comment3.params=
+comment3.target=void\ zobrazAktHodnotuM()
+comment4.params=
+comment4.target=int\ cervenyKill()
+comment5.params=
+comment5.target=int\ modryKill()
+numComments=6
