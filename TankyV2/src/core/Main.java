@@ -1,5 +1,7 @@
 package core;
 
+import game.Menu;
+
 /**
  * 3/15/2022 - 9:17 AM
  *
@@ -8,10 +10,6 @@ package core;
 public class Main {
 
     public static void main(String[] args) {
-        new Main();
-    }
-
-    public Main() {
-
+        new Menu();
     }
 }
