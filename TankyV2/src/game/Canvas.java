@@ -1,5 +1,8 @@
 package game;
 
+import tools.Image;
+import tools.Images;
+
 import javax.swing.JFrame;
 import java.awt.Color;
 
@@ -8,15 +11,18 @@ import java.awt.Color;
  *
  * @author simon
  */
-public class Menu extends JFrame {
+public class Canvas extends JFrame {
 
-    public Menu() {
-        this.menuInit();
+    public Canvas() {
+        this.canvasInit();
     }
 
-    private void menuInit() {
+    private void canvasInit() {
         this.setSize(400, 600);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.setTitle("Tanky v.2");
+        this.setIconImage(Image.getImage(Images.ICON.getPath()));
+        this.setResizable(false);
         this.getContentPane().setBackground(Color.black);
         this.setVisible(true);
     }
