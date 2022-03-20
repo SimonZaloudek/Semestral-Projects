@@ -1,6 +1,5 @@
 package tools;
 
-import javax.swing.JPanel;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
@@ -10,7 +9,7 @@ import java.awt.image.BufferedImage;
  *
  * @author simon
  */
-public class Image extends JPanel {
+public class Image {
 
     private BufferedImage image;
 
@@ -23,6 +22,6 @@ public class Image extends JPanel {
     }
 
     public void paint(Graphics g) {
-        g.drawImage(this.image, 0, 0, this);
+        g.drawImage(this.image, 0, 0, null);
     }
 }
