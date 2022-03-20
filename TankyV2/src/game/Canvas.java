@@ -1,7 +1,10 @@
 package game;
 
-import javax.swing.JFrame;
-import java.awt.Color;
+import tools.EImages;
+import tools.Image;
+
+import javax.swing.*;
+import java.awt.*;
 
 /**
  * 3/15/2022 - 9:17 AM
@@ -21,5 +24,13 @@ public class Canvas extends JFrame {
         this.setResizable(false);
         this.getContentPane().setBackground(Color.black);
         this.setVisible(true);
+        new Panel();
+    }
+
+    public void paint(Graphics g) {
+        Graphics2D g2d = (Graphics2D)g;
+        super.paint(g);
+        Image image = new Image(EImages.ICON.getImage());
+        image.paint(g2d);
     }
 }

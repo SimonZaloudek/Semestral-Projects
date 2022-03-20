@@ -1,6 +1,7 @@
 package tools;
 
-import java.awt.Graphics2D;
+import javax.swing.JPanel;
+import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
 
@@ -9,16 +10,19 @@ import java.awt.image.BufferedImage;
  *
  * @author simon
  */
-public class Image {
+public class Image extends JPanel {
 
     private BufferedImage image;
 
+    public Image(BufferedImage image) {
+        this.image = image;
+    }
+
     public BufferedImage getImage() {
-        this.image = EImages.ICON.getImage();
         return this.image;
     }
 
-    public void draw(Graphics2D g, int x, int y, int width, int height) {
-        g.drawImage(this.getImage(), x, y, width, height, null);
+    public void paint(Graphics g) {
+        g.drawImage(this.image, 0, 0, this);
     }
 }
