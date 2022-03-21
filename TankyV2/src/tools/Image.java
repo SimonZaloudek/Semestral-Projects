@@ -21,7 +21,7 @@ public class Image {
         return this.image;
     }
 
-    public void paint(Graphics g) {
-        g.drawImage(this.image, 0, 0, null);
+    public void paint(Graphics g, int x, int y, int width, int height) {
+        g.drawImage(this.image, x, y, width, height, null);
     }
 }

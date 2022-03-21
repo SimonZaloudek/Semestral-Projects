@@ -4,7 +4,6 @@ import tools.EImages;
 import tools.Image;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -16,29 +15,38 @@ import java.awt.Graphics2D;
  */
 public class Canvas extends JFrame {
 
-    private JPanel panel;
+    private Panels menu;
 
     public Canvas() {
         this.canvasInit();
     }
 
     private void canvasInit() {
-        this.panel = new JPanel();
-        this.panel.setBackground(Color.black);
-        this.pack();
-        this.add(this.panel);
+        this.menu = new Panels("menu");
+        this.add(this.menu.getPanel());
 
-        this.setSize(400, 600);
+        this.setSize(600, 800);
+        this.setIconImage(EImages.ICON.getImage());
+        this.setBackground(Color.BLACK);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setTitle("Tanky v.2");
-        this.setResizable(true);
+        this.setResizable(false);
         this.setVisible(true);
+        //this.goToGame();
+    }
+
+    public void goToGame() {
+        this.remove(this.menu.getPanel());
+        this.pack();
+        this.menu = new Panels("game");
+        this.add(this.menu.getPanel());
+        this.setSize(1600, 900);
     }
 
     public void paint(Graphics g) {
         Graphics2D g2d = (Graphics2D)g;
-        this.panel.paint(g2d);
-        Image image = new Image(EImages.ICON.getImage());
-        image.paint(g2d);
+        this.menu.getPanel().paint(g2d);
+        tools.Image image = new Image(EImages.LOGO.getImage());
+        image.paint(g2d, 40, 30, 500, 120);
     }
 }
