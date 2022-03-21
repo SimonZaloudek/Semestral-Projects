@@ -21,7 +21,6 @@ public enum EImages {
             image = ImageIO.read(new File(path));
         } catch (IOException ex) {
             ex.printStackTrace();
-            System.out.println("An error has occured..");
         }
     }
     public BufferedImage getImage() {

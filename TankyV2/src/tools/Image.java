@@ -17,10 +17,6 @@ public class Image {
         this.image = image;
     }
 
-    public BufferedImage getImage() {
-        return this.image;
-    }
-
     public void paint(Graphics g, int x, int y, int width, int height) {
         g.drawImage(this.image, x, y, width, height, null);
     }

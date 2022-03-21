@@ -1,35 +1,56 @@
 package game;
 
-import tools.EImages;
-import tools.Image;
-
 import javax.swing.JPanel;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 /**
  * 3/15/2022 - 9:17 AM
  *
  * @author simon
  */
-public class Panels extends JPanel {
+public class Panels extends JPanel implements Runnable {
 
-    private JPanel panel;
+    private Thread thread;
 
     public Panels(String name) {
         if (name.equals("menu")) {
             this.panel(Color.BLACK, 600, 800);
         } else if (name.equals("game")) {
-            this.panel(Color.WHITE, 1080, 1920);
+            this.panel(Color.WHITE, 900, 1600);
         }
     }
 
     public void panel(Color color, int width, int height) {
-        this.panel = new JPanel();
-        this.panel.setBackground(color);
-        this.panel.setSize(width, height);
+        super.setBackground(color);
+        super.setPreferredSize(new Dimension(width, height));
     }
 
-    public JPanel getPanel() {
-        return this.panel;
+    public void startTread() {
+        this.thread = new Thread(this);
+        this.thread.start();
+    }
+
+    @Override
+    public void run() {
+        while (this.thread != null) {
+            this.update();
+            super.repaint();
+        }
+    }
+
+    public void update() {
+
+    }
+
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        Graphics2D g2D = (Graphics2D)g;
+
+        g2D.setColor(Color.YELLOW);
+        g2D.fillRect(0, 0, 48, 48);
+        g2D.dispose();
     }
 }
