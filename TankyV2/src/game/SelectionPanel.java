@@ -1,8 +1,6 @@
 package game;
 
-import buttons.ButtonExit;
-import buttons.ButtonHelp;
-import buttons.ButtonSelection;
+import buttons.ButtonStart;
 import tools.EImages;
 import tools.Image;
 
@@ -17,7 +15,7 @@ import java.awt.Graphics2D;
  *
  * @author simon
  */
-public class MenuPanel extends JPanel {
+public class SelectionPanel extends JPanel {
 
     private final Canvas canvas;
     private Image image;
@@ -25,15 +23,13 @@ public class MenuPanel extends JPanel {
     private static final int WIDTH = 700;
     private static final int HEIGHT = 800;
 
-    public MenuPanel(Canvas canvas) {
+    public SelectionPanel(Canvas canvas) {
         this.panel(Color.BLACK, WIDTH, HEIGHT);
 
         this.canvas = canvas;
         super.setLayout(null);
 
-        super.add(new ButtonSelection(100, 250, 210, 70, this));
-        super.add(new ButtonHelp(100, 425, 210, 70, this));
-        super.add(new ButtonExit(100, 600, 210, 70, this));
+        super.add(new ButtonStart(100, 425, 210, 70, this));
     }
 
     public void panel(Color color, int width, int height) {
@@ -47,21 +43,20 @@ public class MenuPanel extends JPanel {
 
         this.image = new Image(EImages.LOGO.getImage());
         this.image.paint(g2D, WIDTH / 2 - 550 / 2, 40, 550, 130);
-        this.image = new Image(EImages.TANK2.getImage());
-        this.image.paint(g2D, 450, 350, 200, 250);
     }
 
-    public void goToHelp() {
+    public void goToMenu() {
         super.removeAll();
         this.canvas.remove(this);
-        this.canvas.add(new HelpPanel(this.canvas));
+        this.canvas.add(new MenuPanel(this.canvas));
         this.canvas.pack();
     }
 
-    public void goToSelection() {
+    public void goToGame() {
         super.removeAll();
         this.canvas.remove(this);
-        this.canvas.add(new SelectionPanel(this.canvas));
+        this.canvas.add(new GamePanel(this.canvas));
         this.canvas.pack();
     }
 }
+
