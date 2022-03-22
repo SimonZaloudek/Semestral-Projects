@@ -12,7 +12,12 @@ import java.io.IOException;
  */
 public enum EImages {
     LOGO("assets/tankyLogo.png"),
-    ICON("assets/tankyIcon.png");
+    ICON("assets/tankyIcon.png"),
+    TANK1("assets/tank1.png"),
+    TANK2("assets/tank2.png"),
+    TANK3("assets/tank3.png"),
+    TANK4("assets/tank4.png"),
+    TANK5("assets/tank5.png");
 
     private BufferedImage image;
 
