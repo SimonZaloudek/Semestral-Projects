@@ -5,7 +5,6 @@ import buttons.ButtonHelp;
 import buttons.ButtonStart;
 import tools.EImages;
 import tools.Image;
-import tools.KeyHandler;
 
 import javax.swing.JPanel;
 import java.awt.Color;
@@ -18,21 +17,18 @@ import java.awt.Graphics2D;
  *
  * @author simon
  */
-public class Panel extends JPanel implements Runnable {
+public class MenuPanel extends JPanel {
 
-    private Thread thread;
-    private KeyHandler handler;
     private final Canvas canvas;
     private Image image;
 
     private static final int WIDTH = 700;
     private static final int HEIGHT = 800;
 
-    public Panel(Canvas canvas) {
+    public MenuPanel(Canvas canvas) {
         this.panel(Color.BLACK, WIDTH, HEIGHT);
 
         this.canvas = canvas;
-        this.handler = new KeyHandler();
         super.setLayout(null);
 
         super.add(new ButtonStart(100, 250, 210, 70, this));
@@ -43,23 +39,6 @@ public class Panel extends JPanel implements Runnable {
     public void panel(Color color, int width, int height) {
         super.setBackground(color);
         super.setPreferredSize(new Dimension(width, height));
-    }
-
-    public void startTread() {
-        this.thread = new Thread(this);
-        this.thread.start();
-    }
-
-    @Override
-    public void run() {
-        while (this.thread != null) {
-            this.update();
-            super.repaint();
-        }
-    }
-
-    public void update() {
-
     }
 
     public void paintComponent(Graphics g) {
@@ -74,7 +53,8 @@ public class Panel extends JPanel implements Runnable {
 
     public void goToGame() {
         super.removeAll();
-        this.panel(Color.WHITE, 1600, 900);
+        this.canvas.remove(this);
+        this.canvas.add(new GamePanel(this.canvas));
         this.canvas.pack();
     }
 

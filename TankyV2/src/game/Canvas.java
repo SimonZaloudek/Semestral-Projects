@@ -11,13 +11,13 @@ import javax.swing.JFrame;
 public class Canvas extends JFrame {
 
     public Canvas() {
-        Panel panel = new Panel(this);
+        MenuPanel panel = new MenuPanel(this);
 
         super.setTitle("Tanky v.2");
         super.setDefaultCloseOperation(EXIT_ON_CLOSE);
         super.setIconImage(EImages.ICON.getImage());
         super.setLocationRelativeTo(null);
-        super.setResizable(false);
+        super.setResizable(true);
         super.setVisible(true);
 
         super.add(panel);
