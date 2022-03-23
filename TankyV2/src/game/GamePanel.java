@@ -1,5 +1,6 @@
 package game;
 
+import tools.Canvas;
 import tools.KeyHandler;
 
 import javax.swing.JPanel;

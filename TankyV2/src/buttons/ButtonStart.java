@@ -1,6 +1,5 @@
 package buttons;
 
-import game.MenuPanel;
 import game.SelectionPanel;
 import tools.Button;
 

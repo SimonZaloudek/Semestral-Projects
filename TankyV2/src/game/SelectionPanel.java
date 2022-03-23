@@ -1,6 +1,8 @@
 package game;
 
+import buttons.ButtonMenu;
 import buttons.ButtonStart;
+import tools.Canvas;
 import tools.EImages;
 import tools.Image;
 
@@ -18,7 +20,6 @@ import java.awt.Graphics2D;
 public class SelectionPanel extends JPanel {
 
     private final Canvas canvas;
-    private Image image;
 
     private static final int WIDTH = 700;
     private static final int HEIGHT = 800;
@@ -29,7 +30,8 @@ public class SelectionPanel extends JPanel {
         this.canvas = canvas;
         super.setLayout(null);
 
-        super.add(new ButtonStart(100, 425, 210, 70, this));
+        super.add(new ButtonStart(100, 425, 200, 60, this));
+        super.add(new ButtonMenu(100, 200, 200, 60, this));
     }
 
     public void panel(Color color, int width, int height) {
@@ -41,8 +43,8 @@ public class SelectionPanel extends JPanel {
         super.paintComponent(g);
         Graphics2D g2D = (Graphics2D)g;
 
-        this.image = new Image(EImages.LOGO.getImage());
-        this.image.paint(g2D, WIDTH / 2 - 550 / 2, 40, 550, 130);
+        Image image = new Image(EImages.LOGO.getImage());
+        image.paint(g2D, WIDTH / 2 - 550 / 2, 40, 550, 130);
     }
 
     public void goToMenu() {
@@ -57,6 +59,7 @@ public class SelectionPanel extends JPanel {
         this.canvas.remove(this);
         this.canvas.add(new GamePanel(this.canvas));
         this.canvas.pack();
+        this.canvas.center();
     }
 }
 

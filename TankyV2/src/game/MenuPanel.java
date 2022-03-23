@@ -3,6 +3,7 @@ package game;
 import buttons.ButtonExit;
 import buttons.ButtonHelp;
 import buttons.ButtonSelection;
+import tools.Canvas;
 import tools.EImages;
 import tools.Image;
 
@@ -11,6 +12,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.util.Random;
 
 /**
  * 3/15/2022 - 9:17 AM
@@ -20,7 +22,6 @@ import java.awt.Graphics2D;
 public class MenuPanel extends JPanel {
 
     private final Canvas canvas;
-    private Image image;
 
     private static final int WIDTH = 700;
     private static final int HEIGHT = 800;
@@ -45,10 +46,10 @@ public class MenuPanel extends JPanel {
         super.paintComponent(g);
         Graphics2D g2D = (Graphics2D)g;
 
-        this.image = new Image(EImages.LOGO.getImage());
-        this.image.paint(g2D, WIDTH / 2 - 550 / 2, 40, 550, 130);
-        this.image = new Image(EImages.TANK2.getImage());
-        this.image.paint(g2D, 450, 350, 200, 250);
+        Image image = new Image(EImages.LOGO.getImage());
+        image.paint(g2D, WIDTH / 2 - 550 / 2, 40, 550, 130);
+        image = new Image(EImages.getNum(new Random().nextInt(5) + 1).getImage());
+        image.paint(g2D, 400, 350, 200, 250);
     }
 
     public void goToHelp() {
@@ -63,5 +64,6 @@ public class MenuPanel extends JPanel {
         this.canvas.remove(this);
         this.canvas.add(new SelectionPanel(this.canvas));
         this.canvas.pack();
+        this.canvas.center();
     }
 }

@@ -1,6 +1,6 @@
 package core;
 
-import game.Canvas;
+import tools.Canvas;
 
 /**
  * 3/15/2022 - 9:17 AM

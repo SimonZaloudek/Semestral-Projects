@@ -23,12 +23,19 @@ public enum EImages {
 
     EImages(String path) {
         try {
-            image = ImageIO.read(new File(path));
+            this.image = ImageIO.read(new File(path));
         } catch (IOException ex) {
             ex.printStackTrace();
         }
     }
     public BufferedImage getImage() {
-        return image;
+        return this.image;
+    }
+
+    public static EImages getNum(int num) {
+        if (num < 1 || num > 5) {
+            num = 1;
+        }
+        return EImages.values()[num + 1];
     }
 }

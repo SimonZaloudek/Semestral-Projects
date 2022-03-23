@@ -19,6 +19,7 @@ public class ButtonExit extends Button {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
+                panel.removeAll();
             }
         });
     }
