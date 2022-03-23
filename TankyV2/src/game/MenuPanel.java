@@ -22,6 +22,8 @@ import java.util.Random;
 public class MenuPanel extends JPanel {
 
     private final Canvas canvas;
+    private boolean isPainted;
+    private int num = 0;
 
     private static final int WIDTH = 700;
     private static final int HEIGHT = 800;
@@ -34,7 +36,7 @@ public class MenuPanel extends JPanel {
 
         super.add(new ButtonSelection(100, 250, 210, 70, this));
         super.add(new ButtonHelp(100, 425, 210, 70, this));
-        super.add(new ButtonExit(100, 600, 210, 70, this));
+        super.add(new ButtonExit(100, 600, 210, 70));
     }
 
     public void panel(Color color, int width, int height) {
@@ -43,13 +45,19 @@ public class MenuPanel extends JPanel {
     }
 
     public void paintComponent(Graphics g) {
+        if (!this.isPainted) {
+            this.isPainted = true;
+            Random random = new Random();
+            this.num = random.nextInt(5) + 1;
+        }
+
         super.paintComponent(g);
         Graphics2D g2D = (Graphics2D)g;
 
         Image image = new Image(EImages.LOGO.getImage());
         image.paint(g2D, WIDTH / 2 - 550 / 2, 40, 550, 130);
-        image = new Image(EImages.getNum(new Random().nextInt(5) + 1).getImage());
-        image.paint(g2D, 400, 350, 200, 250);
+        image = new Image(EImages.getNum(this.num).getImage());
+        image.paint(g2D, 400, 350, 210, 250);
     }
 
     public void goToHelp() {

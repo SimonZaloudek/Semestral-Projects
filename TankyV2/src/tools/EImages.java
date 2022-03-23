@@ -11,13 +11,13 @@ import java.io.IOException;
  * @author simon
  */
 public enum EImages {
-    LOGO("assets/tankyLogo.png"),
-    ICON("assets/tankyIcon.png"),
-    TANK1("assets/tank1.png"),
-    TANK2("assets/tank2.png"),
-    TANK3("assets/tank3.png"),
-    TANK4("assets/tank4.png"),
-    TANK5("assets/tank5.png");
+    LOGO("assets/core/tankyLogo.png"),
+    ICON("assets/core/tankyIcon.png"),
+    TANK1("assets/tanks/tank1.png"),
+    TANK2("assets/tanks/tank2.png"),
+    TANK3("assets/tanks/tank3.png"),
+    TANK4("assets/tanks/tank4.png"),
+    TANK5("assets/tanks/tank5.png");
 
     private BufferedImage image;
 
@@ -26,8 +26,10 @@ public enum EImages {
             this.image = ImageIO.read(new File(path));
         } catch (IOException ex) {
             ex.printStackTrace();
+            System.out.println("Faulty path dir -> " + path + " <- not found");
         }
     }
+
     public BufferedImage getImage() {
         return this.image;
     }

@@ -13,13 +13,12 @@ import java.awt.event.ActionListener;
  */
 public class ButtonExit extends Button {
 
-    public ButtonExit(int x, int y, int width, int height, MenuPanel panel) {
+    public ButtonExit(int x, int y, int width, int height) {
         super(x, y, width, height, "Exit");
         super.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
-                panel.removeAll();
             }
         });
     }
