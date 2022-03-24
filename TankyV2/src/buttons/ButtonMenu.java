@@ -1,9 +1,12 @@
 package buttons;
 
 import game.HelpPanel;
+import game.MapSelectionPanel;
 import game.SelectionPanel;
 import tools.Button;
+import tools.EImages;
 
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,8 +18,12 @@ import java.awt.event.ActionListener;
  */
 public class ButtonMenu extends Button {
 
-    public ButtonMenu(int x, int y, int width, int height, JPanel panel) {
-        super(x, y, width, height, "Menu");
+    public ButtonMenu(int x, int y, int width, int height, String text, boolean img, JPanel panel) {
+        super(x, y, width, height, text);
+        if (img) {
+            super.setIcon(new ImageIcon(EImages.LOGO2.getImage()));
+            super.setBorderPainted(false);
+        }
         super.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -24,6 +31,8 @@ public class ButtonMenu extends Button {
                     ((HelpPanel)panel).goToMenu();
                 } else if (panel instanceof SelectionPanel) {
                     ((SelectionPanel)panel).goToMenu();
+                } else if (panel instanceof MapSelectionPanel) {
+                    ((MapSelectionPanel)panel).goToMenu();
                 }
             }
         });

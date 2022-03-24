@@ -13,8 +13,8 @@ import java.awt.event.ActionListener;
  */
 public class ButtonHelp extends Button {
 
-    public ButtonHelp(int x, int y, int width, int height, MenuPanel panel) {
-        super(x, y, width, height, "Help");
+    public ButtonHelp(int x, int y, int width, int height, String text, MenuPanel panel) {
+        super(x, y, width, height, text);
         super.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

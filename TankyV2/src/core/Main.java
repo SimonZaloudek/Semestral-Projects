@@ -7,6 +7,7 @@ import tools.Canvas;
  *
  * @author simon
  */
+
 public class Main {
 
     public static void main(String[] args) {

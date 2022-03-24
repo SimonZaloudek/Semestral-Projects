@@ -2,6 +2,7 @@ package game;
 
 import buttons.ButtonMenu;
 import buttons.ButtonSelection;
+import buttons.ButtonStart;
 import tools.Canvas;
 
 import javax.swing.JPanel;
@@ -15,23 +16,23 @@ import java.awt.Graphics2D;
  *
  * @author simon
  */
-public class SelectionPanel extends JPanel {
+public class MapSelectionPanel extends JPanel {
 
     private final Canvas canvas;
 
     private static final int WIDTH = 700;
     private static final int HEIGHT = 800;
 
-    public SelectionPanel(Canvas canvas) {
+    public MapSelectionPanel(Canvas canvas) {
         this.panel(Color.BLACK, WIDTH, HEIGHT);
 
         this.canvas = canvas;
         super.setLayout(null);
 
         //Buttons
-        super.add(new ButtonSelection(420, 579, 210, 70, "CONTINUE", this));
-        super.add(new ButtonMenu(75, 579, 210, 70, "BACK", false, this));
+        super.add(new ButtonStart(420, 579, 210, 70, "START", this));
         super.add(new ButtonMenu(WIDTH / 2 - 600 / 2, 40, 600, 150, "", true, this));
+        super.add(new ButtonSelection(75, 579, 210, 70, "BACK", this));
     }
 
     public void panel(Color color, int width, int height) {
@@ -47,16 +48,21 @@ public class SelectionPanel extends JPanel {
 //        image.paint(g2D, WIDTH / 2 - 550 / 2, 40, 600, 150);
     }
 
+    public void goToSelection() {
+        super.removeAll();
+        this.canvas.add(new SelectionPanel(this.canvas));
+        this.canvas.panelConfig(this);
+    }
+
+    public void goToGame() {
+        super.removeAll();
+        this.canvas.add(new GamePanel(this.canvas));
+        this.canvas.panelConfig(this);
+    }
+
     public void goToMenu() {
         super.removeAll();
         this.canvas.add(new MenuPanel(this.canvas));
         this.canvas.panelConfig(this);
     }
-
-    public void goToMapSelection() {
-        super.removeAll();
-        this.canvas.add(new MapSelectionPanel(this.canvas));
-        this.canvas.panelConfig(this);
-    }
 }
-

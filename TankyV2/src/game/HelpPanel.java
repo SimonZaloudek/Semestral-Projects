@@ -29,7 +29,9 @@ public class HelpPanel extends JPanel {
         this.canvas = canvas;
         super.setLayout(null);
 
-        super.add(new ButtonMenu(WIDTH / 2 - 250 / 2, 200, 200, 60, this));
+        //Buttons
+        super.add(new ButtonMenu(WIDTH / 2 - 600 / 2, 40, 600, 150, "", true, this));
+        super.add(new ButtonMenu(75, 579, 210, 70, "BACK", false, this));
     }
 
     public void panel(Color color, int width, int height) {
@@ -48,8 +50,7 @@ public class HelpPanel extends JPanel {
 
     public void goToMenu() {
         super.removeAll();
-        this.canvas.remove(this);
         this.canvas.add(new MenuPanel(this.canvas));
-        this.canvas.pack();
+        this.canvas.panelConfig(this);
     }
 }

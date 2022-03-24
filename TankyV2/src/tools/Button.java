@@ -15,9 +15,10 @@ public class Button extends JButton {
     public Button(int x, int y, int width, int height, String text) {
         super.setBounds(x, y, width, height);
         super.setText(text);
-        super.setFont(new Font("Tahoma", Font.BOLD, 25));
+        super.setFont(new Font("Gill Sans Ultra Bold", Font.PLAIN, 30));
         super.setBackground(Color.WHITE);
         super.setForeground(Color.BLACK);
         super.setBorder(new LineBorder(Color.RED.darker(), 4));
+        super.setFocusable(false);
     }
 }

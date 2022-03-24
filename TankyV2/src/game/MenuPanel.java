@@ -34,9 +34,10 @@ public class MenuPanel extends JPanel {
         this.canvas = canvas;
         super.setLayout(null);
 
-        super.add(new ButtonSelection(75, 300, 210, 70, this));
-        super.add(new ButtonHelp(75, 439, 210, 70, this));
-        super.add(new ButtonExit(75, 579, 210, 70));
+        //Buttons
+        super.add(new ButtonSelection(75, 300, 210, 70, "PLAY", this));
+        super.add(new ButtonHelp(75, 439, 210, 70, "HELP", this));
+        super.add(new ButtonExit(75, 579, 210, 70, "EXIT"));
     }
 
     public void panel(Color color, int width, int height) {
@@ -67,16 +68,13 @@ public class MenuPanel extends JPanel {
 
     public void goToHelp() {
         super.removeAll();
-        this.canvas.remove(this);
         this.canvas.add(new HelpPanel(this.canvas));
-        this.canvas.pack();
+        this.canvas.panelConfig(this);
     }
 
     public void goToSelection() {
         super.removeAll();
-        this.canvas.remove(this);
         this.canvas.add(new SelectionPanel(this.canvas));
-        this.canvas.pack();
-        this.canvas.center();
+        this.canvas.panelConfig(this);
     }
 }

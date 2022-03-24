@@ -1,6 +1,5 @@
 package buttons;
 
-import game.MenuPanel;
 import tools.Button;
 
 import java.awt.event.ActionEvent;
@@ -13,8 +12,8 @@ import java.awt.event.ActionListener;
  */
 public class ButtonExit extends Button {
 
-    public ButtonExit(int x, int y, int width, int height) {
-        super(x, y, width, height, "Exit");
+    public ButtonExit(int x, int y, int width, int height, String text) {
+        super(x, y, width, height, text);
         super.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
