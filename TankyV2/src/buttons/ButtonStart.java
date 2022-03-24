@@ -2,7 +2,6 @@ package buttons;
 
 import game.SelectionPanel;
 import tools.Button;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 

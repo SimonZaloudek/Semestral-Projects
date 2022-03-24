@@ -1,6 +1,7 @@
 package tools;
 
 import javax.swing.JButton;
+import javax.swing.border.LineBorder;
 import java.awt.Color;
 import java.awt.Font;
 
@@ -17,5 +18,6 @@ public class Button extends JButton {
         super.setFont(new Font("Tahoma", Font.BOLD, 25));
         super.setBackground(Color.WHITE);
         super.setForeground(Color.BLACK);
+        super.setBorder(new LineBorder(Color.RED.darker(), 4));
     }
 }

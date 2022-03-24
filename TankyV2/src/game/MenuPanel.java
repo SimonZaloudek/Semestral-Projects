@@ -34,9 +34,9 @@ public class MenuPanel extends JPanel {
         this.canvas = canvas;
         super.setLayout(null);
 
-        super.add(new ButtonSelection(100, 250, 210, 70, this));
-        super.add(new ButtonHelp(100, 425, 210, 70, this));
-        super.add(new ButtonExit(100, 600, 210, 70));
+        super.add(new ButtonSelection(75, 300, 210, 70, this));
+        super.add(new ButtonHelp(75, 439, 210, 70, this));
+        super.add(new ButtonExit(75, 579, 210, 70));
     }
 
     public void panel(Color color, int width, int height) {
@@ -54,10 +54,15 @@ public class MenuPanel extends JPanel {
         super.paintComponent(g);
         Graphics2D g2D = (Graphics2D)g;
 
+        //Logo
         Image image = new Image(EImages.LOGO.getImage());
-        image.paint(g2D, WIDTH / 2 - 550 / 2, 40, 550, 130);
+        image.paint(g2D, WIDTH / 2 - 600 / 2, 40, 600, 150);
+        //Oramovanie
+        image = new Image(EImages.BCG.getImage());
+        image.paint(g2D, 325, 300, 310, 350);
+        //Tanky
         image = new Image(EImages.getNum(this.num).getImage());
-        image.paint(g2D, 400, 350, 210, 250);
+        image.paint(g2D, 375, 350, 210, 250);
     }
 
     public void goToHelp() {
