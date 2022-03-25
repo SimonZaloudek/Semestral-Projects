@@ -31,7 +31,6 @@ public class HelpPanel extends JPanel {
 
         //Buttons
         super.add(new ButtonMenu(WIDTH / 2 - 600 / 2, 40, 600, 150, "", true, this));
-        super.add(new ButtonMenu(75, 579, 210, 70, "BACK", false, this));
     }
 
     public void panel(Color color, int width, int height) {
@@ -43,8 +42,8 @@ public class HelpPanel extends JPanel {
         super.paintComponent(g);
         Graphics2D g2D = (Graphics2D)g;
 
-        Image image = new Image(EImages.LOGO.getImage());
-        image.paint(g2D, WIDTH / 2 - 550 / 2, 40, 550, 130);
+        Image image = new Image(EImages.HELP.getImage());
+        image.paint(g2D, WIDTH / 2 - 550 / 2, 240, 550, 430);
         this.revalidate();
     }
 

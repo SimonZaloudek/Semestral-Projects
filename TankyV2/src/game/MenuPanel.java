@@ -49,7 +49,7 @@ public class MenuPanel extends JPanel {
         if (!this.isPainted) {
             this.isPainted = true;
             Random random = new Random();
-            this.num = random.nextInt(5) + 1;
+            this.num = random.nextInt(11 - 5) + 5;
         }
 
         super.paintComponent(g);
@@ -76,5 +76,6 @@ public class MenuPanel extends JPanel {
         super.removeAll();
         this.canvas.add(new SelectionPanel(this.canvas));
         this.canvas.panelConfig(this);
+
     }
 }

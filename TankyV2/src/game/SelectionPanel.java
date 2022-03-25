@@ -2,7 +2,10 @@ package game;
 
 import buttons.ButtonMenu;
 import buttons.ButtonSelection;
+import buttons.ButtonTankSelection;
 import tools.Canvas;
+import tools.EImages;
+import tools.Image;
 
 import javax.swing.JPanel;
 import java.awt.Color;
@@ -21,6 +24,7 @@ public class SelectionPanel extends JPanel {
 
     private static final int WIDTH = 700;
     private static final int HEIGHT = 800;
+    private int num = 1;
 
     public SelectionPanel(Canvas canvas) {
         this.panel(Color.BLACK, WIDTH, HEIGHT);
@@ -32,6 +36,9 @@ public class SelectionPanel extends JPanel {
         super.add(new ButtonSelection(420, 579, 210, 70, "CONTINUE", this));
         super.add(new ButtonMenu(75, 579, 210, 70, "BACK", false, this));
         super.add(new ButtonMenu(WIDTH / 2 - 600 / 2, 40, 600, 150, "", true, this));
+
+        super.add(new ButtonTankSelection(75, 385, 100, 55, "", false, this));
+        super.add(new ButtonTankSelection(530, 385, 100, 55, "", true, this));
     }
 
     public void panel(Color color, int width, int height) {
@@ -43,8 +50,18 @@ public class SelectionPanel extends JPanel {
         super.paintComponent(g);
         Graphics2D g2D = (Graphics2D)g;
 
-//        Image image = new Image(EImages.LOGO.getImage());
-//        image.paint(g2D, WIDTH / 2 - 550 / 2, 40, 600, 150);
+        if (this.num > 9) {
+            this.num = 9;
+        } else if (this.num < 5) {
+            this.num = 5;
+        }
+
+        //Oramovanie
+        Image image = new Image(EImages.BCG.getImage());
+        image.paint(g2D, WIDTH / 2 - 310 / 2, 210, 310, 350);
+        //Tanky
+        image = new Image(EImages.getNum(this.num).getImage());
+        image.paint(g2D, WIDTH / 2 - 210 / 2, 260, 210, 250);
     }
 
     public void goToMenu() {
@@ -57,6 +74,16 @@ public class SelectionPanel extends JPanel {
         super.removeAll();
         this.canvas.add(new MapSelectionPanel(this.canvas));
         this.canvas.panelConfig(this);
+        this.canvas.setTankN(this.num);
+    }
+
+    public void changeNum(boolean right) {
+        if (right) {
+            this.num++;
+        } else {
+            this.num--;
+        }
+        this.repaint();
     }
 }
 

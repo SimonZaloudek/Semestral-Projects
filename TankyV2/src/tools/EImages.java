@@ -11,15 +11,21 @@ import java.io.IOException;
  * @author simon
  */
 public enum EImages {
-    LOGO("assets/core/tankyLogo_2.png"),
-    LOGO2("assets/core/tankyLogo.png"),
+    //MenuAssets
+    LOGO("assets/core/tankyLogo.png"),
+    ICON("assets/core/tankyIcon.png"),
+    BCG("assets/core/imgbcg.png"),
+    HELP("assets/core/help.png"),
+    BLEFT("assets/core/btnleft.png"),
+    BRIGHT("assets/core/btnright.png"),
+    //TankAssets
     TANK1("assets/tanks/tank1.png"),
     TANK2("assets/tanks/tank2.png"),
     TANK3("assets/tanks/tank3.png"),
     TANK4("assets/tanks/tank4.png"),
     TANK5("assets/tanks/tank5.png"),
-    ICON("assets/core/tankyIcon.png"),
-    BCG("assets/core/imgbcg.png");
+    ENEMY1("assets/tanks/tankE1.png"),
+    ENEMY2("assets/tanks/tankE2.png");
 
     private BufferedImage image;
 
@@ -37,8 +43,8 @@ public enum EImages {
     }
 
     public static EImages getNum(int num) {
-        if (num < 1 || num > 5) {
-            num = 1;
+        if (num < 5 || num > 11) {
+            num = 5;
         }
         return EImages.values()[num + 1];
     }

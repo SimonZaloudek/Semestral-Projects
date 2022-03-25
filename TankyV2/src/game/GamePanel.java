@@ -1,6 +1,8 @@
 package game;
 
 import tools.Canvas;
+import tools.EImages;
+import tools.Image;
 import tools.KeyHandler;
 
 import javax.swing.JPanel;
@@ -56,5 +58,8 @@ public class GamePanel extends JPanel implements Runnable {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2D = (Graphics2D)g;
+
+        Image image = new Image(EImages.getNum(this.canvas.getTankN()).getImage());
+        image.paint(g2D, WIDTH / 2 - 210 / 2, 260, 210, 250);
     }
 }

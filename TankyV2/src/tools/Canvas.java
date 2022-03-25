@@ -14,6 +14,7 @@ import java.awt.Toolkit;
 public class Canvas extends JFrame {
 
     private int counter = 0;
+    private int tankN;
 
     public Canvas() {
         //Canvas Init.
@@ -39,5 +40,14 @@ public class Canvas extends JFrame {
         }
         this.counter++;
         this.setLocation(dim.width / 2 - super.getSize().width / 2, dim.height / 2 - super.getSize().height / 2);
+
+    }
+
+    public int getTankN() {
+        return this.tankN;
+    }
+
+    public void setTankN(int tankN) {
+        this.tankN = tankN;
     }
 }

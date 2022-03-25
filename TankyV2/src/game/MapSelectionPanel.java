@@ -65,4 +65,7 @@ public class MapSelectionPanel extends JPanel {
         this.canvas.add(new MenuPanel(this.canvas));
         this.canvas.panelConfig(this);
     }
+
+    public void changeNum(boolean right) {
+    }
 }
