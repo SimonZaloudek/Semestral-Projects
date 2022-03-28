@@ -26,6 +26,7 @@ public enum EImages {
     TANK5("assets/tanks/tank5.png"),
     ENEMY1("assets/tanks/tankE1.png"),
     ENEMY2("assets/tanks/tankE2.png");
+    //GameAssets
 
     private BufferedImage image;
 

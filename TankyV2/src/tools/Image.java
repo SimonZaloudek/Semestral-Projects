@@ -1,6 +1,8 @@
 package tools;
 
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 
 
@@ -17,7 +19,16 @@ public class Image {
         this.image = image;
     }
 
-    public void paint(Graphics g, int x, int y, int width, int height) {
-        g.drawImage(this.image, x, y, width, height, null);
+    public void paint(Graphics g, int x, int y, int width, int height, int angle) {
+        Graphics2D g2D = (Graphics2D)g;
+        BufferedImage im = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D gd = im.createGraphics();
+
+        AffineTransform at = new AffineTransform();
+        at.rotate(Math.toRadians(angle), width / 2, height / 2);
+        gd.transform(at);
+        gd.drawImage(this.image, 0, 0, width, height, null);
+
+        g2D.drawImage(im, x, y, null);
     }
 }

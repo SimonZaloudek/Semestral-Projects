@@ -19,11 +19,18 @@ import java.awt.Graphics2D;
 public class GamePanel extends JPanel implements Runnable {
 
     private Thread thread;
-    private KeyHandler handler;
+    private final KeyHandler handler;
     private final Canvas canvas;
 
     private static final int WIDTH = 1600;
     private static final int HEIGHT = 900;
+
+    private int playerX = 50;
+    private int playerY = 50;
+    private int angle = 0;
+    private int playerSpeed = 5;
+
+    private long lastFrame;
 
     public GamePanel(Canvas canvas) {
         this.panel(Color.WHITE, WIDTH, HEIGHT);
@@ -31,6 +38,11 @@ public class GamePanel extends JPanel implements Runnable {
         this.canvas = canvas;
         this.handler = new KeyHandler();
         super.setLayout(null);
+
+        super.addKeyListener(this.handler);
+        this.startTread();
+
+        this.lastFrame = System.nanoTime();
     }
 
     public void panel(Color color, int width, int height) {
@@ -46,13 +58,32 @@ public class GamePanel extends JPanel implements Runnable {
     @Override
     public void run() {
         while (this.thread != null) {
+            if (System.nanoTime() < this.lastFrame + 16000000) {
+                continue;
+            }
+            this.lastFrame = System.nanoTime();
             this.update();
-            super.repaint();
         }
     }
 
     public void update() {
-
+        if (this.handler.isW()) {
+            this.playerY -= this.playerSpeed;
+            this.angle = 0;
+        }
+        if (this.handler.isA()) {
+            this.playerX -= this.playerSpeed;
+            this.angle = -90;
+        }
+        if (this.handler.isS()) {
+            this.playerY += this.playerSpeed;
+            this.angle = 180;
+        }
+        if (this.handler.isD()) {
+            this.playerX += this.playerSpeed;
+            this.angle = 90;
+        }
+        super.repaint();
     }
 
     public void paintComponent(Graphics g) {
@@ -60,6 +91,6 @@ public class GamePanel extends JPanel implements Runnable {
         Graphics2D g2D = (Graphics2D)g;
 
         Image image = new Image(EImages.getNum(this.canvas.getTankN()).getImage());
-        image.paint(g2D, WIDTH / 2 - 210 / 2, 260, 210, 250);
+        image.paint(g2D, this.playerX, this.playerY, 75, 90, this.angle);
     }
 }

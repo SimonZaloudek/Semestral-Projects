@@ -43,7 +43,7 @@ public class HelpPanel extends JPanel {
         Graphics2D g2D = (Graphics2D)g;
 
         Image image = new Image(EImages.HELP.getImage());
-        image.paint(g2D, WIDTH / 2 - 550 / 2, 240, 550, 430);
+        image.paint(g2D, WIDTH / 2 - 550 / 2, 240, 550, 430, 0);
         this.revalidate();
     }
 

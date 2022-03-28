@@ -49,7 +49,7 @@ public class MenuPanel extends JPanel {
         if (!this.isPainted) {
             this.isPainted = true;
             Random random = new Random();
-            this.num = random.nextInt(11 - 5) + 5;
+            this.num = random.nextInt(12 - 5) + 5;
         }
 
         super.paintComponent(g);
@@ -57,13 +57,13 @@ public class MenuPanel extends JPanel {
 
         //Logo
         Image image = new Image(EImages.LOGO.getImage());
-        image.paint(g2D, WIDTH / 2 - 600 / 2, 40, 600, 150);
+        image.paint(g2D, WIDTH / 2 - 600 / 2, 40, 600, 150, 0);
         //Oramovanie
         image = new Image(EImages.BCG.getImage());
-        image.paint(g2D, 325, 300, 310, 350);
+        image.paint(g2D, 325, 300, 310, 350, 0);
         //Tanky
         image = new Image(EImages.getNum(this.num).getImage());
-        image.paint(g2D, 375, 350, 210, 250);
+        image.paint(g2D, 375, 350, 210, 250, 0);
     }
 
     public void goToHelp() {

@@ -58,10 +58,10 @@ public class SelectionPanel extends JPanel {
 
         //Oramovanie
         Image image = new Image(EImages.BCG.getImage());
-        image.paint(g2D, WIDTH / 2 - 310 / 2, 210, 310, 350);
+        image.paint(g2D, WIDTH / 2 - 310 / 2, 210, 310, 350, 0);
         //Tanky
         image = new Image(EImages.getNum(this.num).getImage());
-        image.paint(g2D, WIDTH / 2 - 210 / 2, 260, 210, 250);
+        image.paint(g2D, WIDTH / 2 - 210 / 2, 260, 210, 250, 0);
     }
 
     public void goToMenu() {

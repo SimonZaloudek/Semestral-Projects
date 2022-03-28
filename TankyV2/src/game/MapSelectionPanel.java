@@ -56,8 +56,10 @@ public class MapSelectionPanel extends JPanel {
 
     public void goToGame() {
         super.removeAll();
-        this.canvas.add(new GamePanel(this.canvas));
+        GamePanel game = new GamePanel(this.canvas);
+        this.canvas.add(game);
         this.canvas.panelConfig(this);
+        game.requestFocus();
     }
 
     public void goToMenu() {

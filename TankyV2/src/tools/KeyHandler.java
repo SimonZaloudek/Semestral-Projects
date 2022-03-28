@@ -2,7 +2,6 @@ package tools;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.ArrayList;
 
 /**
  * 3/15/2022 - 9:17 AM
@@ -11,7 +10,7 @@ import java.util.ArrayList;
  */
 public class KeyHandler implements KeyListener {
 
-    private ArrayList<KeyEvent> keys = new ArrayList<>();
+    private boolean w, a, s, d;
 
     @Override
     public void keyTyped(KeyEvent e) {
@@ -23,7 +22,10 @@ public class KeyHandler implements KeyListener {
         int keyCode = e.getKeyCode();
 
         switch (keyCode) {
-            case KeyEvent.VK_W, KeyEvent.VK_A, KeyEvent.VK_S, KeyEvent.VK_D -> this.keys.add(e);
+            case KeyEvent.VK_W -> this.w = true;
+            case KeyEvent.VK_A -> this.a = true;
+            case KeyEvent.VK_S -> this.s = true;
+            case KeyEvent.VK_D -> this.d = true;
         }
     }
 
@@ -32,7 +34,26 @@ public class KeyHandler implements KeyListener {
         int keyCode = e.getKeyCode();
 
         switch (keyCode) {
-            case KeyEvent.VK_W, KeyEvent.VK_A, KeyEvent.VK_S, KeyEvent.VK_D -> this.keys.remove(e);
+            case KeyEvent.VK_W -> this.w = false;
+            case KeyEvent.VK_A -> this.a = false;
+            case KeyEvent.VK_S -> this.s = false;
+            case KeyEvent.VK_D -> this.d = false;
         }
+    }
+
+    public boolean isW() {
+        return this.w;
+    }
+
+    public boolean isA() {
+        return this.a;
+    }
+
+    public boolean isS() {
+        return this.s;
+    }
+
+    public boolean isD() {
+        return this.d;
     }
 }
