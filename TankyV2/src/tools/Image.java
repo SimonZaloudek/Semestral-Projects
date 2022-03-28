@@ -20,15 +20,19 @@ public class Image {
     }
 
     public void paint(Graphics g, int x, int y, int width, int height, int angle) {
+        this.paint(g, x, y, width, height, angle, 0);
+    }
+
+    public void paint(Graphics g, int x, int y, int width, int height, int angle, int off) {
         Graphics2D g2D = (Graphics2D)g;
-        BufferedImage im = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+        BufferedImage im = new BufferedImage(width + off, height + off, BufferedImage.TYPE_INT_ARGB);
         Graphics2D gd = im.createGraphics();
 
         AffineTransform at = new AffineTransform();
-        at.rotate(Math.toRadians(angle), width / 2, height / 2);
+        at.rotate(Math.toRadians(angle), (width + off) / 2, (height + off) / 2);
+        at.translate(1, 1);
         gd.transform(at);
-        gd.drawImage(this.image, 0, 0, width, height, null);
-
+        gd.drawImage(this.image, off / 2, off / 2, width, height, null);
         g2D.drawImage(im, x, y, null);
     }
 }

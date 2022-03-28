@@ -67,21 +67,41 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     public void update() {
-        if (this.handler.isW()) {
+        if (this.handler.isW() && !this.handler.isA() && !this.handler.isS() && !this.handler.isD()) {
             this.playerY -= this.playerSpeed;
             this.angle = 0;
         }
-        if (this.handler.isA()) {
+        if (this.handler.isA() && !this.handler.isW() && !this.handler.isS() && !this.handler.isD()) {
             this.playerX -= this.playerSpeed;
             this.angle = -90;
         }
-        if (this.handler.isS()) {
+        if (this.handler.isS() && !this.handler.isA() && !this.handler.isW() && !this.handler.isD()) {
             this.playerY += this.playerSpeed;
             this.angle = 180;
         }
-        if (this.handler.isD()) {
+        if (this.handler.isD() && !this.handler.isA() && !this.handler.isS() && !this.handler.isW()) {
             this.playerX += this.playerSpeed;
             this.angle = 90;
+        }
+        if (this.handler.isW() && this.handler.isD() && !this.handler.isS() && !this.handler.isA()) {
+            this.playerX += this.playerSpeed;
+            this.playerY -= this.playerSpeed;
+            this.angle = 45;
+        }
+        if (this.handler.isW() && this.handler.isA() && !this.handler.isS() && !this.handler.isD()) {
+            this.playerX -= this.playerSpeed;
+            this.playerY -= this.playerSpeed;
+            this.angle = -45;
+        }
+        if (this.handler.isS() && this.handler.isD() && !this.handler.isA() && !this.handler.isW()) {
+            this.playerX += this.playerSpeed;
+            this.playerY += this.playerSpeed;
+            this.angle = 135;
+        }
+        if (this.handler.isS() && this.handler.isA() && !this.handler.isW() && !this.handler.isD()) {
+            this.playerX -= this.playerSpeed;
+            this.playerY += this.playerSpeed;
+            this.angle = 225;
         }
         super.repaint();
     }
@@ -91,6 +111,6 @@ public class GamePanel extends JPanel implements Runnable {
         Graphics2D g2D = (Graphics2D)g;
 
         Image image = new Image(EImages.getNum(this.canvas.getTankN()).getImage());
-        image.paint(g2D, this.playerX, this.playerY, 75, 90, this.angle);
+        image.paint(g2D, this.playerX, this.playerY, 75, 90, this.angle, 40);
     }
 }
