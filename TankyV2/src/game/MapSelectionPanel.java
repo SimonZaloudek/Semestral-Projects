@@ -44,8 +44,6 @@ public class MapSelectionPanel extends JPanel {
         super.paintComponent(g);
         Graphics2D g2D = (Graphics2D)g;
 
-//        Image image = new Image(EImages.LOGO.getImage());
-//        image.paint(g2D, WIDTH / 2 - 550 / 2, 40, 600, 150);
     }
 
     public void goToSelection() {

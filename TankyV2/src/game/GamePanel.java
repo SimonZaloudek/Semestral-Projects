@@ -28,7 +28,7 @@ public class GamePanel extends JPanel implements Runnable {
     private int playerX = 50;
     private int playerY = 50;
     private int angle = 0;
-    private int playerSpeed = 5;
+    private int playerSpeed = 3;
 
     private long lastFrame;
 
@@ -84,23 +84,23 @@ public class GamePanel extends JPanel implements Runnable {
             this.angle = 90;
         }
         if (this.handler.isW() && this.handler.isD() && !this.handler.isS() && !this.handler.isA()) {
-            this.playerX += this.playerSpeed;
-            this.playerY -= this.playerSpeed;
+            this.playerX += this.playerSpeed - 1;
+            this.playerY -= this.playerSpeed - 1;
             this.angle = 45;
         }
         if (this.handler.isW() && this.handler.isA() && !this.handler.isS() && !this.handler.isD()) {
-            this.playerX -= this.playerSpeed;
-            this.playerY -= this.playerSpeed;
+            this.playerX -= this.playerSpeed - 1;
+            this.playerY -= this.playerSpeed - 1;
             this.angle = -45;
         }
         if (this.handler.isS() && this.handler.isD() && !this.handler.isA() && !this.handler.isW()) {
-            this.playerX += this.playerSpeed;
-            this.playerY += this.playerSpeed;
+            this.playerX += this.playerSpeed - 1;
+            this.playerY += this.playerSpeed - 1;
             this.angle = 135;
         }
         if (this.handler.isS() && this.handler.isA() && !this.handler.isW() && !this.handler.isD()) {
-            this.playerX -= this.playerSpeed;
-            this.playerY += this.playerSpeed;
+            this.playerX -= this.playerSpeed - 1;
+            this.playerY += this.playerSpeed - 1;
             this.angle = 225;
         }
         super.repaint();
