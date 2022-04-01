@@ -1,8 +1,7 @@
 package game;
 
+import entities.Player;
 import tools.Canvas;
-import tools.EImages;
-import tools.Image;
 import tools.KeyHandler;
 
 import javax.swing.JPanel;
@@ -19,27 +18,24 @@ import java.awt.Graphics2D;
 public class GamePanel extends JPanel implements Runnable {
 
     private Thread thread;
-    private final KeyHandler handler;
-    private final Canvas canvas;
+    private final Player player;
 
     private static final int WIDTH = 1600;
     private static final int HEIGHT = 900;
 
-    private int playerX = 50;
-    private int playerY = 50;
-    private int angle = 0;
-    private int playerSpeed = 3;
-
     private long lastFrame;
+    private final int tankN;
 
     public GamePanel(Canvas canvas) {
         this.panel(Color.WHITE, WIDTH, HEIGHT);
+        this.tankN = canvas.getTankN();
 
-        this.canvas = canvas;
-        this.handler = new KeyHandler();
+        KeyHandler handler = new KeyHandler();
+
+        this.player = new Player(this, handler);
         super.setLayout(null);
 
-        super.addKeyListener(this.handler);
+        super.addKeyListener(handler);
         this.startTread();
 
         this.lastFrame = System.nanoTime();
@@ -63,54 +59,23 @@ public class GamePanel extends JPanel implements Runnable {
             }
             this.lastFrame = System.nanoTime();
             this.update();
+            this.repaint();
         }
     }
 
     public void update() {
-        if (this.handler.isW() && !this.handler.isA() && !this.handler.isS() && !this.handler.isD()) {
-            this.playerY -= this.playerSpeed;
-            this.angle = 0;
-        }
-        if (this.handler.isA() && !this.handler.isW() && !this.handler.isS() && !this.handler.isD()) {
-            this.playerX -= this.playerSpeed;
-            this.angle = -90;
-        }
-        if (this.handler.isS() && !this.handler.isA() && !this.handler.isW() && !this.handler.isD()) {
-            this.playerY += this.playerSpeed;
-            this.angle = 180;
-        }
-        if (this.handler.isD() && !this.handler.isA() && !this.handler.isS() && !this.handler.isW()) {
-            this.playerX += this.playerSpeed;
-            this.angle = 90;
-        }
-        if (this.handler.isW() && this.handler.isD() && !this.handler.isS() && !this.handler.isA()) {
-            this.playerX += this.playerSpeed - 1;
-            this.playerY -= this.playerSpeed - 1;
-            this.angle = 45;
-        }
-        if (this.handler.isW() && this.handler.isA() && !this.handler.isS() && !this.handler.isD()) {
-            this.playerX -= this.playerSpeed - 1;
-            this.playerY -= this.playerSpeed - 1;
-            this.angle = -45;
-        }
-        if (this.handler.isS() && this.handler.isD() && !this.handler.isA() && !this.handler.isW()) {
-            this.playerX += this.playerSpeed - 1;
-            this.playerY += this.playerSpeed - 1;
-            this.angle = 135;
-        }
-        if (this.handler.isS() && this.handler.isA() && !this.handler.isW() && !this.handler.isD()) {
-            this.playerX -= this.playerSpeed - 1;
-            this.playerY += this.playerSpeed - 1;
-            this.angle = 225;
-        }
-        super.repaint();
+        this.player.update();
     }
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2D = (Graphics2D)g;
 
-        Image image = new Image(EImages.getNum(this.canvas.getTankN()).getImage());
-        image.paint(g2D, this.playerX, this.playerY, 75, 90, this.angle, 40);
+        this.player.draw(g2D);
     }
+
+    public int getTankN() {
+        return this.tankN;
+    }
+
 }
