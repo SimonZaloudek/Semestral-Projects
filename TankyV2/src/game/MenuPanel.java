@@ -62,7 +62,7 @@ public class MenuPanel extends JPanel {
         image = new Image(EImages.BCG.getImage());
         image.paint(g2D, 325, 300, 310, 350, 0);
         //Tanky
-        image = new Image(EImages.getNum(this.num).getImage());
+        image = new Image(EImages.getNum(this.num, false).getImage());
         image.paint(g2D, 375, 350, 210, 250, 0);
     }
 

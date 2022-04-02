@@ -74,7 +74,19 @@ public class Player {
     }
 
     public void draw(Graphics2D g2D) {
-        Image image = new Image(EImages.getNum(this.panel.getTankN()).getImage());
+        Image image = new Image(EImages.getNum(this.panel.getTankN() + 7, true).getImage());
         image.paint(g2D, this.x, this.y, 75, 90, this.angle, 40);
+    }
+
+    public int getX() {
+        return this.x;
+    }
+
+    public int getY() {
+        return this.y;
+    }
+
+    public GamePanel getPanel() {
+        return this.panel;
     }
 }

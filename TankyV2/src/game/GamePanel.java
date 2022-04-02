@@ -3,6 +3,7 @@ package game;
 import entities.Player;
 import tools.Canvas;
 import tools.KeyHandler;
+import tools.MouseHandler;
 
 import javax.swing.JPanel;
 import java.awt.Color;
@@ -19,6 +20,7 @@ public class GamePanel extends JPanel implements Runnable {
 
     private Thread thread;
     private final Player player;
+    private final Tower tower;
 
     private static final int WIDTH = 1600;
     private static final int HEIGHT = 900;
@@ -31,11 +33,14 @@ public class GamePanel extends JPanel implements Runnable {
         this.tankN = canvas.getTankN();
 
         KeyHandler handler = new KeyHandler();
+        MouseHandler mouseHandler = new MouseHandler();
 
         this.player = new Player(this, handler);
+        this.tower = new Tower(this, handler, mouseHandler);
         super.setLayout(null);
 
         super.addKeyListener(handler);
+        super.addMouseMotionListener(mouseHandler);
         this.startTread();
 
         this.lastFrame = System.nanoTime();
@@ -72,6 +77,7 @@ public class GamePanel extends JPanel implements Runnable {
         Graphics2D g2D = (Graphics2D)g;
 
         this.player.draw(g2D);
+        this.tower.draw(g2D);
     }
 
     public int getTankN() {

@@ -30,7 +30,6 @@ public class Image {
 
         AffineTransform at = new AffineTransform();
         at.rotate(Math.toRadians(angle), (width + off) / 2, (height + off) / 2);
-        at.translate(1, 1);
         gd.transform(at);
         gd.drawImage(this.image, off / 2, off / 2, width, height, null);
         g2D.drawImage(im, x, y, null);
