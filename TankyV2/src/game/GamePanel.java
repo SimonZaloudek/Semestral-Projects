@@ -3,7 +3,6 @@ package game;
 import entities.Player;
 import tools.Canvas;
 import tools.KeyHandler;
-import tools.MouseHandler;
 
 import javax.swing.JPanel;
 import java.awt.Color;
@@ -33,14 +32,13 @@ public class GamePanel extends JPanel implements Runnable {
         this.tankN = canvas.getTankN();
 
         KeyHandler handler = new KeyHandler();
-        MouseHandler mouseHandler = new MouseHandler();
 
         this.player = new Player(this, handler);
-        this.tower = new Tower(this, handler, mouseHandler);
+        this.tower = new Tower(this, handler);
         super.setLayout(null);
 
         super.addKeyListener(handler);
-        super.addMouseMotionListener(mouseHandler);
+        super.addMouseMotionListener(this.tower);
         this.startTread();
 
         this.lastFrame = System.nanoTime();
