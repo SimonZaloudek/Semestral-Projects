@@ -67,7 +67,8 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     public void update() {
-        this.player.update();
+        this.player.update(3);
+        this.tower.update(3);
         this.tower.mouseIdlin();
     }
 

@@ -25,10 +25,12 @@ public class Tower extends Player implements MouseMotionListener {
     }
 
     public void draw(Graphics2D g2D) {
-        super.update();
-
         Image image = new Image(EImages.getTower(super.getPanel().getTankN() + 7).getImage());
         image.paint(g2D, super.getX() - 6, super.getY() - 7, 87, 104, (int)this.angleM, 40);
+    }
+
+    public void update(int speed) {
+        super.update(speed);
     }
 
     @Override

@@ -18,7 +18,6 @@ public class Player {
     private final GamePanel panel;
     private int x;
     private int y;
-    private int speed;
     private int angle;
 
     public Player(GamePanel p, KeyHandler h) {
@@ -31,44 +30,43 @@ public class Player {
     public void setSpawnLocation() {
         this.x = 400;
         this.y = 400;
-        this.speed = 3;
     }
 
-    public void update() {
+    public void update(int speed) {
         if (this.handler.isW() && !this.handler.isA() && !this.handler.isS() && !this.handler.isD()) {
-            this.y -= this.speed;
+            this.y -= speed;
             this.angle = 0;
         }
         if (this.handler.isA() && !this.handler.isW() && !this.handler.isS() && !this.handler.isD()) {
-            this.x -= this.speed;
+            this.x -= speed;
             this.angle = -90;
         }
         if (this.handler.isS() && !this.handler.isA() && !this.handler.isW() && !this.handler.isD()) {
-            this.y += this.speed;
+            this.y += speed;
             this.angle = 180;
         }
         if (this.handler.isD() && !this.handler.isA() && !this.handler.isS() && !this.handler.isW()) {
-            this.x += this.speed;
+            this.x += speed;
             this.angle = 90;
         }
         if (this.handler.isW() && this.handler.isD() && !this.handler.isS() && !this.handler.isA()) {
-            this.x += this.speed - 1;
-            this.y -= this.speed - 1;
+            this.y -= speed - 1;
+            this.x += speed - 1;
             this.angle = 45;
         }
         if (this.handler.isW() && this.handler.isA() && !this.handler.isS() && !this.handler.isD()) {
-            this.x -= this.speed - 1;
-            this.y -= this.speed - 1;
+            this.x -= speed - 1;
+            this.y -= speed - 1;
             this.angle = -45;
         }
         if (this.handler.isS() && this.handler.isD() && !this.handler.isA() && !this.handler.isW()) {
-            this.x += this.speed - 1;
-            this.y += this.speed - 1;
+            this.x += speed - 1;
+            this.y += speed - 1;
             this.angle = 135;
         }
         if (this.handler.isS() && this.handler.isA() && !this.handler.isW() && !this.handler.isD()) {
-            this.x -= this.speed - 1;
-            this.y += this.speed - 1;
+            this.x -= speed - 1;
+            this.y += speed - 1;
             this.angle = 225;
         }
     }
