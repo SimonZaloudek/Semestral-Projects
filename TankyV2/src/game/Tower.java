@@ -17,6 +17,8 @@ import java.awt.event.MouseMotionListener;
 public class Tower extends Player implements MouseMotionListener {
 
     private double angleM;
+    private double lastMouseX;
+    private double lastMouseY;
 
     public Tower(GamePanel p, KeyHandler h) {
         super(p, h);
@@ -36,6 +38,12 @@ public class Tower extends Player implements MouseMotionListener {
 
     @Override
     public void mouseMoved(MouseEvent e) {
-        this.angleM = 90 + (Math.toDegrees(Math.atan2(e.getY() - super.getY() - 7 - 40, e.getX() - super.getX() - 6 - 40))) % 360;
+        this.angleM = 90 + (Math.toDegrees(Math.atan2(e.getY() - super.getY() - 47, e.getX() - super.getX() - 46))) % 360;
+        this.lastMouseX = e.getX();
+        this.lastMouseY = e.getY();
+    }
+
+    public void mouseIdlin() {
+        this.angleM = 90 + (Math.toDegrees(Math.atan2(this.lastMouseY - super.getY() - 40, this.lastMouseX - super.getX() - 40))) % 360;
     }
 }
