@@ -26,12 +26,7 @@ public enum EImages {
     TANK5("assets/tanks/tank5.png"),
     ENEMY1("assets/tanks/tankE1.png"),
     ENEMY2("assets/tanks/tankE2.png"),
-    //GameAssets
-    BODY1("assets/tanks/inGame/tank1.png"),
-    BODY2("assets/tanks/inGame/tank2.png"),
-    BODY3("assets/tanks/inGame/tank3.png"),
-    BODY4("assets/tanks/inGame/tank4.png"),
-    BODY5("assets/tanks/inGame/tank5.png"),
+    //Towers
     TOWER1("assets/tanks/towers/tank1.png"),
     TOWER2("assets/tanks/towers/tank2.png"),
     TOWER3("assets/tanks/towers/tank3.png"),
@@ -53,8 +48,8 @@ public enum EImages {
         return this.image;
     }
 
-    public static EImages getNum(int num, boolean game) {
-        if (!game) {
+    public static EImages getNum(int num, boolean tower) {
+        if (!tower) {
             if (num < 5 || num > 11) {
                 num = 5;
             }
@@ -65,12 +60,5 @@ public enum EImages {
             }
             return EImages.values()[num + 1];
         }
-    }
-
-    public static EImages getTower(int num) {
-        if (num < 12 || num > 16) {
-            num = 12;
-        }
-        return EImages.values()[num + 6];
     }
 }

@@ -1,6 +1,7 @@
 package game;
 
 import entities.Player;
+import entities.Tower;
 import tools.Canvas;
 import tools.KeyHandler;
 

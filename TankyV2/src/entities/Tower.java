@@ -1,6 +1,7 @@
-package game;
+package entities;
 
 import entities.Player;
+import game.GamePanel;
 import tools.EImages;
 import tools.Image;
 import tools.KeyHandler;
@@ -14,6 +15,7 @@ import java.awt.event.MouseMotionListener;
  *
  * @author simon
  */
+
 public class Tower extends Player implements MouseMotionListener {
 
     private double angleM;
@@ -25,7 +27,7 @@ public class Tower extends Player implements MouseMotionListener {
     }
 
     public void draw(Graphics2D g2D) {
-        Image image = new Image(EImages.getTower(super.getPanel().getTankN() + 7).getImage());
+        Image image = new Image(EImages.getNum(super.getPanel().getTankN() + 7, true).getImage());
         image.paint(g2D, super.getX() - 6, super.getY() - 7, 87, 104, (int)this.angleM, 40);
     }
 

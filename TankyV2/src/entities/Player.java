@@ -1,7 +1,7 @@
 package entities;
 
 import game.GamePanel;
-import tools.EImages;
+import tools.EGameAnimations;
 import tools.Image;
 import tools.KeyHandler;
 
@@ -72,7 +72,7 @@ public class Player {
     }
 
     public void draw(Graphics2D g2D) {
-        Image image = new Image(EImages.getNum(this.panel.getTankN() + 7, true).getImage());
+        Image image = new Image(EGameAnimations.getNum(this.panel.getTankN() - 5).getImage());
         image.paint(g2D, this.x, this.y, 75, 90, this.angle, 40);
     }
 
